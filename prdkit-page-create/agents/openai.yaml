@@ -1,0 +1,7 @@
+interface:
+  display_name: "创建页面原型"
+  short_description: "先生成并落盘方案文档，确认后再创建页面原型与 mock 数据。"
+  default_prompt: "使用 $create-prototype-page 检查当前 prdkit 项目状态，扫描上下文后提出 3-4 个高信息密度问题，先生成并保存 `draft/reference/<title>-prototype-plan.md` 方案文档（包含任务清单、ASCII 线框图、交互说明、视觉规则和第二阶段命令），在用户确认前不要创建页面；确认后再执行正确的原型创建命令并补齐 `mock.js` 与页面代码。"
+
+policy:
+  allow_implicit_invocation: true
