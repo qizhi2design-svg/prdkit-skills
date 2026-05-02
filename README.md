@@ -3,8 +3,8 @@
   
   # PRDkit Skills
   
-  <p>Claude Code skills 集合，用于增强 prdkit 产品管理工具的使用体验</p>
-  <p>让 Claude 更智能地协助产品经理完成 PRD 编写、原型创建、标注管理等日常工作</p>
+  <p>🤖 Claude Code skills 集合，用于增强 prdkit 产品管理工具的使用体验</p>
+  <p>✨ 让 Claude 更智能地协助产品经理完成 PRD 编写、原型创建、标注管理等日常工作</p>
   
   <p>
     <a href="https://github.com/qizhi2design-svg/prdkit-skills">
@@ -17,7 +17,25 @@
       <img src="https://img.shields.io/github/license/qizhi2design-svg/prdkit-skills" alt="License">
     </a>
   </p>
+  
+  <p>
+    <strong>⚡ 快速上手</strong> • 
+    <strong>🎯 智能触发</strong> • 
+    <strong>🛠️ 开箱即用</strong> • 
+    <strong>🔧 高度可定制</strong>
+  </p>
 </div>
+
+## ✨ 核心特性
+
+- 🤖 **AI 驱动**：基于 Claude 的智能理解和生成能力
+- 🎨 **原型设计**：快速创建移动端和 PC 端原型页面
+- 📝 **PRD 编写**：自动生成结构化的产品需求文档
+- 🏷️ **标注管理**：为原型元素添加详细的功能说明
+- 🔄 **双向同步**：原型与 PRD 文档自动同步更新
+- ✅ **质量审查**：14 个维度全面检查 PRD 质量
+- 🚀 **工作流优化**：从项目初始化到文档审查的完整流程
+- 💡 **智能判断**：自动识别需求复杂度，选择最佳处理方式
 
 ## 🔄 典型工作流程
 
@@ -63,7 +81,7 @@ graph LR
 
 ## 🚀 快速开始
 
-### 安装 Skills
+### 📥 安装 Skills
 
 ```bash
 # 安装所有 skills（推荐）
@@ -86,7 +104,7 @@ npx skills add qizhi2design-svg/prdkit-skills -a claude-code -s '*' -g -y
 - `-y, --yes`: 跳过确认提示
 - `--list`: 列出仓库中所有可用的 skills
 
-### 支持的平台
+### 🤖 支持的平台
 
 这些 skills 可以安装到以下 AI 编程助手平台：
 
@@ -95,7 +113,7 @@ npx skills add qizhi2design-svg/prdkit-skills -a claude-code -s '*' -g -y
 | **Claude Code** | `claude-code` | `~/.claude/skills/` |
 | **Codex** | `codex` | `~/.codex/skills/` |
 
-### 手动安装
+### 🔧 手动安装
 
 如果你更喜欢手动管理 skills：
 
@@ -113,7 +131,7 @@ ln -s $(pwd)/prdkit-* ~/.claude/skills/
 # 3. 重启 Claude Code
 ```
 
-### 使用 Skills
+### 💡 使用 Skills
 
 Skills 会根据你的对话内容自动触发。例如：
 
