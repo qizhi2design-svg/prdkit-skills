@@ -63,15 +63,6 @@ graph LR
 
 ## 🚀 快速开始
 
-### 支持的平台
-
-这些 skills 可以安装到以下 AI 编程助手平台：
-
-| 平台 | `--agent` 参数 | Skills 路径 |
-|------|---------------|-------------|
-| **Claude Code** | `claude-code` | `~/.claude/skills/` |
-| **Codex** | `codex` | `~/.codex/skills/` |
-
 ### 安装 Skills
 
 ```bash
@@ -94,6 +85,15 @@ npx skills add qizhi2design-svg/prdkit-skills -a claude-code -s '*' -g -y
 - `-g, --global`: 全局安装到 `~/.claude/skills/`
 - `-y, --yes`: 跳过确认提示
 - `--list`: 列出仓库中所有可用的 skills
+
+### 支持的平台
+
+这些 skills 可以安装到以下 AI 编程助手平台：
+
+| 平台 | `--agent` 参数 | Skills 路径 |
+|------|---------------|-------------|
+| **Claude Code** | `claude-code` | `~/.claude/skills/` |
+| **Codex** | `codex` | `~/.codex/skills/` |
 
 ### 手动安装
 
