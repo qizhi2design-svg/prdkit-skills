@@ -128,6 +128,127 @@ Claude: [自动使用 prdkit-mark-create skill]
 Claude: [自动使用 prdkit-prd-check skill]
 ```
 
+## 📚 命令参考
+
+### `skills add` - 安装 Skills
+
+从 GitHub 仓库安装 skills 到本地或全局目录。
+
+```bash
+# 安装所有 skills
+npx skills add qizhi2design-svg/prdkit-skills -a claude-code -s '*' -y
+
+# 列出可用的 skills
+npx skills add qizhi2design-svg/prdkit-skills --list
+
+# 安装特定 skill
+npx skills add qizhi2design-svg/prdkit-skills -a claude-code -s prdkit-prd-create
+
+# 全局安装所有 skills
+npx skills add qizhi2design-svg/prdkit-skills --all -g
+```
+
+**常用选项**：
+- `-g, --global` - 安装到用户目录（`~/.claude/skills/`）
+- `-a, --agent <agents...>` - 指定目标平台
+- `-s, --skill <skills...>` - 安装特定 skills
+- `-l, --list` - 列出仓库中可用的 skills
+- `--copy` - 复制文件而非创建符号链接
+- `-y, --yes` - 跳过确认提示
+- `--all` - 安装所有 skills 且不提示
+
+### `skills list` - 列出已安装的 Skills
+
+查看当前已安装的 skills，支持按平台过滤。
+
+```bash
+# 列出所有已安装的 skills
+npx skills list
+
+# 列出全局安装的 skills
+npx skills ls -g
+
+# 列出特定平台的 skills
+npx skills ls -a claude-code
+```
+
+**别名**: `ls`
+
+### `skills find` - 搜索 Skills
+
+交互式搜索或按关键词查找可用的 skills。
+
+```bash
+# 交互式搜索
+npx skills find
+
+# 按关键词搜索
+npx skills find prd
+npx skills find prototype
+```
+
+### `skills update` - 更新 Skills
+
+更新已安装的 skills 到最新版本。
+
+```bash
+# 更新所有 skills
+npx skills update
+
+# 更新特定 skill
+npx skills update prdkit-prd-create
+
+# 仅更新全局 skills
+npx skills update -g
+
+# 仅更新项目 skills
+npx skills update -p
+```
+
+**常用选项**：
+- `-g, --global` - 仅更新全局 skills
+- `-p, --project` - 仅更新项目 skills
+- `-y, --yes` - 自动检测范围并更新
+
+### `skills remove` - 移除 Skills
+
+从指定平台移除 skills。
+
+```bash
+# 交互式移除
+npx skills remove
+
+# 移除特定 skill
+npx skills remove prdkit-prd-create
+
+# 移除所有 prdkit skills
+npx skills remove -s 'prdkit-*'
+
+# 从特定平台移除
+npx skills remove -a claude-code -s prdkit-prd-create
+```
+
+**别名**: `rm`
+
+**常用选项**：
+- `-g, --global` - 从全局目录移除
+- `-a, --agent <agents...>` - 指定平台
+- `-s, --skill <skills...>` - 指定要移除的 skills
+- `-y, --yes` - 跳过确认提示
+- `--all` - 移除所有 skills
+
+### `skills init` - 创建新 Skill
+
+创建新的 skill 模板文件（SKILL.md）。
+
+```bash
+# 交互式创建
+npx skills init
+
+# 创建指定名称的 skill
+npx skills init my-custom-skill
+```
+
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！
