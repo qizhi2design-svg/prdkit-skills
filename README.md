@@ -3,8 +3,7 @@
   
   # PRDkit Skills
   
-  <p>🤖 Claude Code skills 集合，用于增强 prdkit 产品管理工具的使用体验</p>
-  <p>✨ 让 Claude 更智能地协助产品经理完成 PRD 编写、原型创建、标注管理等日常工作</p>
+  <p>✨ 让 AI 更智能地协助产品经理完成 PRD 编写、原型创建、标注管理等日常工作</p>
   
   <p>
     <a href="https://github.com/qizhi2design-svg/prdkit-skills">
@@ -15,6 +14,18 @@
     </a>
     <a href="https://github.com/qizhi2design-svg/prdkit-skills/blob/main/LICENSE">
       <img src="https://img.shields.io/github/license/qizhi2design-svg/prdkit-skills" alt="License">
+    </a>
+    <a href="https://github.com/qizhi2design-svg/prdkit-skills/issues">
+      <img src="https://img.shields.io/github/issues/qizhi2design-svg/prdkit-skills" alt="GitHub issues">
+    </a>
+    <a href="https://github.com/qizhi2design-svg/prdkit-skills/pulls">
+      <img src="https://img.shields.io/github/issues-pr/qizhi2design-svg/prdkit-skills" alt="GitHub pull requests">
+    </a>
+    <a href="https://github.com/qizhi2design-svg/prdkit-skills/commits">
+      <img src="https://img.shields.io/github/last-commit/qizhi2design-svg/prdkit-skills" alt="Last commit">
+    </a>
+    <a href="https://github.com/qizhi2design-svg/prdkit-skills/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/qizhi2design-svg/prdkit-skills" alt="Contributors">
     </a>
   </p>
   
