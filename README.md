@@ -5,6 +5,18 @@
   
   <p>Claude Code skills 集合，用于增强 prdkit 产品管理工具的使用体验</p>
   <p>让 Claude 更智能地协助产品经理完成 PRD 编写、原型创建、标注管理等日常工作</p>
+  
+  <p>
+    <a href="https://github.com/qizhi2design-svg/prdkit-skills">
+      <img src="https://img.shields.io/github/stars/qizhi2design-svg/prdkit-skills?style=social" alt="GitHub stars">
+    </a>
+    <a href="https://github.com/qizhi2design-svg/prdkit-skills/fork">
+      <img src="https://img.shields.io/github/forks/qizhi2design-svg/prdkit-skills?style=social" alt="GitHub forks">
+    </a>
+    <a href="https://github.com/qizhi2design-svg/prdkit-skills/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/qizhi2design-svg/prdkit-skills" alt="License">
+    </a>
+  </p>
 </div>
 
 ## 🔄 典型工作流程
@@ -51,42 +63,55 @@ graph LR
 
 ## 🚀 快速开始
 
+### 支持的平台
+
+这些 skills 可以安装到以下 AI 编程助手平台：
+
+| 平台 | `--agent` 参数 | Skills 路径 |
+|------|---------------|-------------|
+| **Claude Code** | `claude-code` | `~/.claude/skills/` |
+| **Codex** | `codex` | `~/.codex/skills/` |
+
 ### 安装 Skills
 
-#### 方式一：使用 npx 安装（推荐）
-
 ```bash
-# 安装所有 skills
+# 安装所有 skills（推荐）
 npx skills add qizhi2design-svg/prdkit-skills -a claude-code -s '*' -y
 
-# 或者选择性安装特定 skill
+# 列出可用的 skills
 npx skills add qizhi2design-svg/prdkit-skills --list
+
+# 安装特定 skill
+npx skills add qizhi2design-svg/prdkit-skills -a claude-code -s prdkit-prd-create
+
+# 全局安装
+npx skills add qizhi2design-svg/prdkit-skills -a claude-code -s '*' -g -y
 ```
 
-**安装选项说明**：
-- `-g, --global`: 全局安装
-- `-a, --agent`: 指定 agent 类型（claude-code 或 codex）
-- `-s, --skill`: 选择特定 skill（使用 `'*'` 安装全部）
+**常用选项**：
+- `-a, --agent <name>`: 指定目标平台（`claude-code` 或 `codex`）
+- `-s, --skill <name>`: 选择特定 skill（使用 `'*'` 安装全部）
+- `-g, --global`: 全局安装到 `~/.claude/skills/`
 - `-y, --yes`: 跳过确认提示
+- `--list`: 列出仓库中所有可用的 skills
 
-#### 方式二：手动安装
+### 手动安装
 
-1. 克隆仓库到本地：
+如果你更喜欢手动管理 skills：
+
 ```bash
+# 1. 克隆仓库
 git clone https://github.com/qizhi2design-svg/prdkit-skills.git
 cd prdkit-skills
-```
 
-2. 将 skills 目录添加到 Claude Code 的 skills 路径：
-```bash
-# 方法 1: 复制到 Claude Code 的 skills 目录
+# 2. 复制到 Claude Code skills 目录
 cp -r prdkit-* ~/.claude/skills/
 
-# 方法 2: 创建符号链接
+# 或者创建符号链接（推荐，便于更新）
 ln -s $(pwd)/prdkit-* ~/.claude/skills/
-```
 
-3. 重启 Claude Code 或重新加载 skills
+# 3. 重启 Claude Code
+```
 
 ### 使用 Skills
 
