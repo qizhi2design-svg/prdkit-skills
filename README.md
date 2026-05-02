@@ -45,8 +45,8 @@ graph LR
 | | [prdkit-mark-create](prdkit-mark-create/) | 为原型元素创建标注说明<br/>• 分析元素上下文<br/>• 结构化提问明确标注内容 | 从 viewer 复制元素后创建标注、记录交互逻辑和功能说明 |
 | | [prdkit-page-update](prdkit-page-update/) | 修改原型页面，支持样式、交互、数据修改<br/>• 自动创建 checkpoint 版本 | 修改页面元素、更新交互逻辑、调整页面样式 |
 | | [prdkit-mark-update](prdkit-mark-update/) | 修改原型标注内容，记录需求变更 | 更新标注说明、修正标注错误、补充标注细节 |
-| **第三步：PRD 编写** | [prdkit-prototype-sync](prdkit-prototype-sync/) | 将原型更新同步回 PRD 文档<br/>• 自动定位 PRD 和原型<br/>• 对比差异后更新 PRD | 原型完成后反哺 PRD、同步标注内容到需求文档 |
-| | [prdkit-prd-create](prdkit-prd-create/) | 创建产品需求文档（PRD），支持高/中/低复杂度需求<br/>• 两阶段流程：先生成方案稿，确认后生成正式 PRD<br/>• 自动完成产品定型与复杂度判断 | 编写新的 PRD 文档、生成需求文档初稿、整理产品方案 |
+| **第三步：PRD 编写** | [prdkit-prd-create](prdkit-prd-create/) | 创建产品需求文档（PRD），支持高/中/低复杂度需求<br/>• 两阶段流程：先生成方案稿，确认后生成正式 PRD<br/>• 自动完成产品定型与复杂度判断 | 编写新的 PRD 文档、生成需求文档初稿、整理产品方案 |
+| | [prdkit-prototype-sync](prdkit-prototype-sync/) | 将原型更新同步回 PRD 文档<br/>• 自动定位 PRD 和原型<br/>• 对比差异后更新 PRD | 原型完成后反哺 PRD、同步标注内容到需求文档 |
 | **第四步：审查优化** | [prdkit-prd-check](prdkit-prd-check/) | 审查 PRD 文档质量，按 14 个维度输出改进建议<br/>• 需求背景、目标用户、功能描述<br/>• 交互流程、数据模型、异常处理<br/>• 性能要求、安全性、可测试性等 | Review PRD 文档、检查需求完整性、发现潜在问题和风险 |
 
 ## 🚀 快速开始
