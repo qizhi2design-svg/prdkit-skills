@@ -1,7 +1,0 @@
-interface:
-  display_name: "Sync Viewer Publish"
-  short_description: "Sync viewer changes into viewer-publish safely."
-  default_prompt: "Use $sync-viewer-publish to sync cli/src/prototype/viewer changes into viewer-publish and validate the publish app."
-
-policy:
-  allow_implicit_invocation: true

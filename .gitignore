@@ -42,3 +42,6 @@ yarn-error.log*
 # Claude and evaluation directories
 .claude/
 prdkit-skills-evaluation/
+
+# Viewer publish (internal tool, not part of public skills)
+prdkit-viewer-publish/

@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/banner.png" alt="prdkit Skills Banner" width="100%">
   
-  # prdkit Skills
+  # PRDkit Skills
   
   <p>Claude Code skills 集合，用于增强 prdkit 产品管理工具的使用体验</p>
   <p>让 Claude 更智能地协助产品经理完成 PRD 编写、原型创建、标注管理等日常工作</p>
@@ -110,14 +110,6 @@
 - 读取 marks 并识别对应章节
 - 对比差异后更新 PRD
 
-#### prdkit-viewer-publish
-同步 viewer 代码到发布版本。
-
-**使用场景**:
-- 同步 UI/样式更新
-- 更新共享组件
-- 刷新发布版本
-
 ## 🚀 快速开始
 
 ### 安装 Skills
@@ -197,8 +189,7 @@ prdkit/skills/
 ├── prdkit-page-update/      # 原型修改
 ├── prdkit-mark-create/      # 标注创建
 ├── prdkit-mark-update/      # 标注修改
-├── prdkit-prototype-sync/   # 原型同步
-└── prdkit-viewer-publish/   # Viewer 发布
+└── prdkit-prototype-sync/   # 原型同步
 ```
 
 ### 修改 Skills
