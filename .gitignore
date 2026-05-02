@@ -38,3 +38,7 @@ yarn-error.log*
 # Temporary files
 *.tmp
 *.temp
+
+# Claude and evaluation directories
+.claude/
+prdkit-skills-evaluation/
