@@ -15,6 +15,9 @@
     <a href="https://github.com/qizhi2design-svg/prdkit-skills/blob/main/LICENSE">
       <img src="https://img.shields.io/github/license/qizhi2design-svg/prdkit-skills" alt="License">
     </a>
+    <a href="#-包含的-skills">
+      <img src="https://img.shields.io/badge/Skills-8-blue" alt="Skills count">
+    </a>
     <a href="https://github.com/qizhi2design-svg/prdkit-skills/issues">
       <img src="https://img.shields.io/github/issues/qizhi2design-svg/prdkit-skills" alt="GitHub issues">
     </a>
