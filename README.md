@@ -18,9 +18,9 @@ graph LR
     D -->|修改标注| F[mark-update]
     E --> D
     F --> D
-    D -->|完成| G[同步到PRD<br/>prototype-sync]
-    G --> H[创建PRD<br/>prd-create]
-    H --> I[审查PRD<br/>prd-check]
+    D -->|完成| H[创建PRD<br/>prd-create]
+    H --> G[同步到PRD<br/>prototype-sync]
+    G --> I[审查PRD<br/>prd-check]
     I --> J{需要优化?}
     J -->|是| B
     J -->|否| K[完成]
@@ -30,8 +30,8 @@ graph LR
     style C fill:#fff4e1
     style E fill:#fff4e1
     style F fill:#fff4e1
-    style G fill:#e8f5e9
     style H fill:#e8f5e9
+    style G fill:#e8f5e9
     style I fill:#f3e5f5
     style K fill:#c8e6c9
 ```
@@ -101,48 +101,6 @@ Claude: [自动使用 prdkit-mark-create skill]
 
 你: 帮我 review 一下这个 PRD
 Claude: [自动使用 prdkit-prd-check skill]
-```
-
-## 📖 Skill 详细说明
-
-每个 skill 目录包含：
-- `SKILL.md` - Skill 的详细说明和使用指南
-- `references/` - 参考文档（如果有）
-- `scripts/` - 辅助脚本（如果有）
-
-查看具体 skill 的使用方法：
-```bash
-cat prdkit-prd-create/SKILL.md
-```
-
-## 🛠️ 开发
-
-### 项目结构
-
-```
-prdkit/skills/
-├── prdkit-project-init/     # 项目初始化
-├── prdkit-prd-create/       # PRD 创建
-├── prdkit-prd-check/        # PRD 审查
-├── prdkit-page-create/      # 原型创建
-├── prdkit-page-update/      # 原型修改
-├── prdkit-mark-create/      # 标注创建
-├── prdkit-mark-update/      # 标注修改
-└── prdkit-prototype-sync/   # 原型同步
-```
-
-### 修改 Skills
-
-1. 编辑对应的 `SKILL.md` 文件
-2. 测试修改后的 skill
-3. 提交更改
-
-### 测试 Skills
-
-使用 skill-creator 进行评测：
-```bash
-# 在 Claude Code 中
-/skill-creator evaluate <skill-name>
 ```
 
 ## 🤝 贡献
