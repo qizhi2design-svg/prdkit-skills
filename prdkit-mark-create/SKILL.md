@@ -123,8 +123,16 @@ allowed-tools:
      --prototype <原型路径> \
      --title "<标注标题>" \
      --selector "<CSS选择器>" \
-     --dom-path "<DOM路径>" \
      --desc "<标注描述>"
+   ```
+   
+   或使用 Markdown 文件：
+   ```bash
+   prdkit mark create \
+     --prototype <原型路径> \
+     --title "<标注标题>" \
+     --selector "<CSS选择器>" \
+     --desc-file <markdown文件路径>
    ```
 
 2. **检查执行结果**：
@@ -215,7 +223,6 @@ prdkit mark create \
   --prototype "车后本地生活门店知识库" \
   --title "品牌展示区" \
   --selector "body > div.app-shell > aside.sidebar > div.brand" \
-  --dom-path "body > div.app-shell > aside.sidebar > div.brand" \
   --desc "## 功能说明
 展示门店品牌信息，帮助用户识别当前门店
 
