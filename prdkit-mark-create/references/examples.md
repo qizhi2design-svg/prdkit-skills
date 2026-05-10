@@ -43,7 +43,7 @@ DOM 路径: body > div.app-container > aside.sidebar > nav.main-nav
 
 ### 执行命令
 ```bash
-prdkit mark create \
+prdkit prototype mark create \
   --prototype "admin-dashboard" \
   --title "主导航菜单" \
   --selector "body > div.app-container > aside.sidebar > nav.main-nav" \
@@ -105,7 +105,7 @@ DOM 路径: body > div.container > form.register-form
 
 ### 执行命令
 ```bash
-prdkit mark create \
+prdkit prototype mark create \
   --prototype "register" \
   --title "注册表单交互规则" \
   --selector "body > div.container > form.register-form" \
@@ -164,7 +164,7 @@ DOM 路径: body > div.page > div.content > table.order-table
 
 ### 执行命令
 ```bash
-prdkit mark create \
+prdkit prototype mark create \
   --prototype "order-list" \
   --title "订单列表数据展示规则" \
   --selector "body > div.page > div.content > table.order-table" \

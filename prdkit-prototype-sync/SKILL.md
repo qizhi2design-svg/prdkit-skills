@@ -11,8 +11,8 @@ allowed-tools:
   - Bash(prdkit prd list*)
   - Bash(prdkit prd check*)
   - Bash(prdkit prototype list*)
-  - Bash(prdkit mark list*)
-  - Bash(prdkit mark get*)
+  - Bash(prdkit prototype mark list*)
+  - Bash(prdkit prototype mark get*)
   - Bash(prdkit serve status*)
   - Edit
   - MultiEdit
@@ -77,13 +77,13 @@ prdkit prototype list
 5. 获取 prototype 下的 marks：
 
 ```bash
-prdkit mark list --prototype <prototype-path> --json
+prdkit prototype mark list --prototype <prototype-path> --json
 ```
 
 6. 对每个 mark 继续取详情：
 
 ```bash
-prdkit mark get <mark-id> --prototype <prototype-path> --json
+prdkit prototype mark get <mark-id> --prototype <prototype-path> --json
 ```
 
 7. 生成 prototype 链接：

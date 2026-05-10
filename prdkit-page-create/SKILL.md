@@ -79,7 +79,7 @@ allowed-tools:
 
 8. **创建 checkpoint**：
    ```bash
-   prdkit checkpoint create
+   prdkit prototype checkpoint create <prototype-name> -m "初始版本"
    ```
 
 9. **清理临时文档**：

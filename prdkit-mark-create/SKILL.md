@@ -1,15 +1,15 @@
 ---
 name: prdkit-mark-create
-description: 当用户从 viewer 复制元素信息时使用。该 skill 先分析元素上下文和现有标注，确认用户操作意图，然后通过结构化提问明确标注内容，最后调用 prdkit mark create 命令创建标注。
+description: 当用户从 viewer 复制元素信息时使用。该 skill 先分析元素上下文和现有标注，确认用户操作意图，然后通过结构化提问明确标注内容，最后调用 prdkit prototype mark create 命令创建标注。
 allowed-tools:
   - Read
   - Bash(grep*)
   - Bash(find*)
   - Bash(ls*)
-  - Bash(prdkit mark list*)
-  - Bash(prdkit mark get*)
+  - Bash(prdkit prototype mark list*)
+  - Bash(prdkit prototype mark get*)
   - AskUserQuestion
-  - Bash(prdkit mark create*)
+  - Bash(prdkit prototype mark create*)
 ---
 
 # 创建原型标注
@@ -48,7 +48,7 @@ allowed-tools:
 3. **如果信息完整，直接创建标注**：
    - 构建标注标题（从用户描述中提取或生成）
    - 整理标注描述（结构化用户提供的内容）
-   - 执行 `prdkit mark create` 命令
+   - 执行 `prdkit prototype mark create` 命令
    - 提示用户标注已创建
 
 4. **如果信息不完整，补充提问**：
@@ -73,7 +73,7 @@ allowed-tools:
 
 3. **检查现有标注**：
    ```bash
-   prdkit mark list --prototype <原型路径> --json
+   prdkit prototype mark list --prototype <原型路径> --json
    ```
    - 如果发现该元素已有标注，读取并展示
 
@@ -119,7 +119,7 @@ allowed-tools:
 
 1. **构建并执行命令**：
    ```bash
-   prdkit mark create \
+   prdkit prototype mark create \
      --prototype <原型路径> \
      --title "<标注标题>" \
      --selector "<CSS选择器>" \
@@ -128,7 +128,7 @@ allowed-tools:
    
    或使用 Markdown 文件：
    ```bash
-   prdkit mark create \
+   prdkit prototype mark create \
      --prototype <原型路径> \
      --title "<标注标题>" \
      --selector "<CSS选择器>" \
@@ -219,7 +219,7 @@ DOM 路径: body > div.app-shell > aside.sidebar > div.brand
 
 **执行命令**：
 ```bash
-prdkit mark create \
+prdkit prototype mark create \
   --prototype "车后本地生活门店知识库" \
   --title "品牌展示区" \
   --selector "body > div.app-shell > aside.sidebar > div.brand" \

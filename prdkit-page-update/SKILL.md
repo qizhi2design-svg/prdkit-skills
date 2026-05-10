@@ -7,7 +7,7 @@ allowed-tools:
   - Bash(find*)
   - Bash(ls*)
   - AskUserQuestion
-  - Bash(prdkit checkpoint create*)
+  - Bash(prdkit prototype checkpoint create*)
   - Bash(prdkit serve)
   - Bash(prdkit serve status)
   - Edit
@@ -64,7 +64,7 @@ allowed-tools:
 
 6. **创建 checkpoint 版本**：
    ```bash
-   prdkit checkpoint create <prototype-name> --message "修改：<简短描述>"
+   prdkit prototype checkpoint create <prototype-name> -m "修改：<简短描述>"
    ```
 
 7. **检查预览服务器状态并引导用户预览**：

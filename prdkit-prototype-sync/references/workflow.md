@@ -17,8 +17,8 @@
 
 1. 用 `prdkit prd check` 定位 PRD
 2. 用 `prdkit prototype list` 和用户输入定位 prototype
-3. 用 `prdkit mark list --json` 获取 mark 列表
-4. 用 `prdkit mark get --json` 获取 mark 详情
+3. 用 `prdkit prototype mark list --json` 获取 mark 列表
+4. 用 `prdkit prototype mark get --json` 获取 mark 详情
 5. 归纳 mark 内容
 6. 识别 PRD 中现有的对应需求描述小节
 7. 更新 PRD
