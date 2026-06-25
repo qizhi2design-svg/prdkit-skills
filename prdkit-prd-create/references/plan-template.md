@@ -90,10 +90,11 @@ confirmed_info:
 
 - 
 
-## 9. 第二阶段执行方式
+## 9. 第二阶段执行命令
 
-1. 使用 `prd_create` 创建正式 PRD 骨架
-2. 再根据本方案稿补全 `workspace/prds/` 下的正式文档内容
+```bash
+prdkit prd create "<标题>" --from-plan ./draft/reference/<标题>-prd-plan.md
+```
 
 ## 10. 问答记录
 

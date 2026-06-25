@@ -189,7 +189,9 @@ document.getElementById('heroAction').addEventListener('click', handleHeroAction
 ## 执行步骤
 
 1. 备份当前版本（可选）
-   - 如本次修改影响关键流程，可在执行前创建一次 prototype checkpoint
+   ```bash
+   prdkit checkpoint create mobile-demo --message "修改前备份"
+   ```
 
 2. 修改 index.html（按钮文字）
 
@@ -198,10 +200,15 @@ document.getElementById('heroAction').addEventListener('click', handleHeroAction
 4. 测试功能（在浏览器中验证）
 
 5. 创建 checkpoint
-   - 修改完成后，用 `prototype_checkpoint_create` 为本次变更留痕
+   ```bash
+   prdkit checkpoint create mobile-demo --message "修改：主按钮改为「开始使用」并添加跳转逻辑"
+   ```
 
 6. 预览验证
-   - 使用当前项目已有的预览方式或本地验证流程检查结果
+   ```bash
+   prdkit serve status  # 检查服务状态
+   prdkit serve         # 如果没有运行则启动
+   ```
 
 ---
 

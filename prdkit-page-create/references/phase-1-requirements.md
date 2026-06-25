@@ -177,10 +177,10 @@
 ## 待用户确认 / 修改
 - ...
 
-## 第二阶段执行方式
-- 使用 `prototype_create` 创建页面骨架
-- 至少提供 `projectRoot`、`title`、`template`
-- `template` 在 `mobile | admin | web` 中选择
+## 第二阶段执行命令
+```bash
+prdkit prototype create "<title>" --template <mobile|admin|web> --dir ./workspace/prototypes
+```
 
 ## 问答记录
 - ...

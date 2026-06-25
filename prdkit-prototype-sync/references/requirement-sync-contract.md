@@ -64,7 +64,7 @@
 - ...
 ```
 
-> Prototype Link 统一使用云端 release URL，从 `prototype_release_link_list` 获取
+> Prototype Link 统一使用云端 release URL，从 `prdkit prototype release link list` 获取
 
 ## 标注到 PRD 的映射建议
 

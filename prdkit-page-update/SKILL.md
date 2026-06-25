@@ -1,88 +1,157 @@
 ---
 name: prdkit-page-update
-description: 当用户提供 viewer 复制的元素信息、HTML 片段、页面路径，要求修改已有原型页面时使用。遇到“改这个区域”“调整这个页面”“把这块交互补上”“更新原型里的某个模块”等请求时应主动触发，并结合元素定位、文件编辑与 prototype checkpoint 留痕完成修改。
+description: 当用户提供页面元素信息（选择器、HTML 片段）并要求修改原型页面时使用。该 skill 采用两阶段流程：第一阶段解析元素信息并定位文件；第二阶段通过结构化提问明确修改意图（数据/交互/功能）后直接执行修改、创建 checkpoint 版本并引导预览。
+allowed-tools:
+  - Read
+  - Bash(grep*)
+  - Bash(find*)
+  - Bash(ls*)
+  - AskUserQuestion
+  - Bash(prdkit prototype checkpoint create*)
+  - Bash(prdkit serve)
+  - Bash(prdkit serve status)
+  - Edit
 ---
 
 # 修改页面原型
 
-基于用户提供的页面元素信息，定位原型文件、澄清修改意图、编辑页面代码，并在需要时用 prototype checkpoint 记录本次变更。
-
-## 当前工具分工
-
-- `prototype_checkpoint_create`：为这次修改创建版本留痕
-- 通用读取工具：定位 `index.html`、相关 `script.js`、`mock.js`、样式文件
-- 通用编辑工具：完成页面实现修改
-
 ## 工作流程
 
-### 第一阶段：解析元素信息并定位文件
+### 第一阶段：解析元素信息
 
-1. 解析用户提供的信息，通常包括：
+1. **解析用户提供的元素信息**，通常包含：
    - 项目名称
    - 文件路径
-   - 元素选择器
+   - 元素选择器（ID、类名、标签）
    - HTML 片段
    - 文本内容
-2. 根据文件路径找到对应页面目录
-3. 优先读取：
-   - `index.html`
-   - 同目录 `script.js`
-   - 同目录 `mock.js`
-   - 相关样式文件
-4. 分析当前实现：
-   - 这个区域的 HTML 结构
-   - 相关交互逻辑
-   - 关联的数据来源
-   - 是否已有相近功能可复用
 
-### 第二阶段：澄清修改意图
+2. **定位目标文件**：
+   - 根据文件路径读取 `index.html`
+   - 读取同目录下的 `script.js` 和 `mock.js`
+   - 确认元素在代码中的位置
 
-参考 [references/clarify-intent.md](references/clarify-intent.md)，把修改意图归类为：
+3. **分析当前实现**：
+   - 元素的 HTML 结构
+   - 相关的交互逻辑（事件监听）
+   - 关联的数据（mock.js 中的数据）
+   - 当前的样式和状态
 
-- 数据调整
-- 交互调整
-- 功能新增
-- 内容修正
-- 结构重组
+### 第二阶段：明确修改意图并执行
 
-如果用户描述不完整，追问最关键的缺口，不要泛泛而谈。  
-目标是能明确回答这三个问题：
+4. **使用 `AskUserQuestion` 工具结构化提问**，明确修改类型（参考 [references/clarify-intent.md](references/clarify-intent.md)）：
 
-1. 改哪里
-2. 改成什么
-3. 为什么要这样改
+   **必须明确的四个维度**：
+   - **修改操作**：是新增、修改、移除还是替换元素？
+   - **数据层面**：是否需要修改 mock.js 中的数据？
+   - **交互层面**：是否需要修改 script.js 中的事件处理？
+   - **视图层面**：是否需要修改 HTML 结构或样式？
 
-### 第三阶段：制定更新方案并执行
+   提问要点：
+   - 简短、具体、聚焦当前元素
+   - 一次提问覆盖 2-3 个关键点
+   - 避免宽泛的开放式问题
 
-参考 [references/update-plan-template.md](references/update-plan-template.md) 组织修改方案。
+5. **根据用户回答直接执行修改**：
+   - **新增元素**：在 HTML 中添加新元素，在 mock.js 添加数据，在 script.js 添加交互
+   - **修改元素**：更新文本、属性、样式或行为
+   - **移除元素**：从 HTML 删除元素，清理相关的数据和事件监听器
+   - **替换元素**：用新元素替换旧元素，同步更新数据和逻辑
+   - 优先修改 `mock.js`（数据层）
+   - 然后修改 `script.js`（逻辑层）
+   - 最后修改 `index.html`（视图层）
+   - 保持代码风格一致
 
-执行时遵循：
+6. **创建 checkpoint 版本**：
+   ```bash
+   prdkit prototype checkpoint create <prototype-name> -m "修改：<简短描述>"
+   ```
 
-- 页面代码由通用编辑工具直接修改
-- 如涉及数据展示变化，同时更新 `mock.js`
-- 如涉及交互变化，同时更新脚本逻辑
-- 尽量局部修改，不做无关重构
+7. **检查预览服务器状态并引导用户预览**：
+   - 运行 `prdkit serve status` 检查是否有服务在运行
+   - 如果有服务运行：提示用户刷新浏览器查看修改
+   - 如果没有服务运行：
+     - 运行 `prdkit serve` 启动预览服务器
+     - 提示用户点击链接预览
 
-### 第四阶段：为重要修改留痕
+## 修改原则
 
-当修改影响页面行为、信息结构或关键业务流程时，在代码改动完成后用 `prototype_checkpoint_create` 创建版本记录。
+### 修改操作类型
 
-checkpoint message 要用产品语言描述业务变化，例如：
+#### 新增元素
+- 在合适的位置插入新的 HTML 元素
+- 在 mock.js 中添加相关数据（如果需要）
+- 在 script.js 中添加事件监听和交互逻辑
+- 保持与现有元素的样式一致性
 
-- `补充门店筛选与结果联动`
-- `调整工单详情页的操作流程说明`
+#### 修改元素
+- 更新元素的文本内容、属性或样式
+- 同步更新 mock.js 中的相关数据
+- 调整 script.js 中的逻辑以适应修改
+- 保持元素的语义化和可访问性
 
-不要把 message 写成技术变更说明。
+#### 移除元素
+- 从 HTML 中删除目标元素
+- 清理 mock.js 中不再使用的数据
+- 移除 script.js 中相关的事件监听器和逻辑
+- 确保移除后不影响其他功能
 
-## 关键约束
+#### 替换元素
+- 用新元素替换旧元素（保持或更改结构）
+- 更新 mock.js 中的数据结构以匹配新元素
+- 重写或调整 script.js 中的交互逻辑
+- 保持页面整体的一致性
 
-- 不再引用历史的 checkpoint 或预览启动写法
-- 不把 checkpoint 当成替代编辑动作；checkpoint 只负责留痕
-- 如果用户给的是局部元素信息，也要先读完整页面上下文再改
-- 修改完成后要检查是否波及同页的脚本、数据与文本
+### 代码层面原则
 
-## 参考资料
+### 数据层（mock.js）
+- 保持数据结构的一致性
+- 新增字段要有合理的默认值
+- 状态数据统一存储在 `mockData.state`
 
-- [references/clarify-intent.md](references/clarify-intent.md)
-- [references/modification-examples.md](references/modification-examples.md)
-- [references/update-plan-template.md](references/update-plan-template.md)
+### 逻辑层（script.js）
+- 事件监听器命名清晰（如 `handleHeroAction`）
+- 状态更新后调用 `render()` 重新渲染
+- 避免直接操作 DOM，通过数据驱动视图
+
+### 视图层（index.html）
+- 保持语义化的 HTML 结构
+- ID 用于唯一元素，class 用于样式和批量操作
+- 图片占位使用纯色背景 + 文字标注（参考 create-page skill）
+
+### 代码风格
+- 遵循项目现有的代码风格
+- 保持缩进和命名一致
+- 添加必要的注释说明修改意图
+
+## 约束规则
+
+**流程控制**
+- 必须先解析元素信息，再提问
+- 提问后根据用户回答直接执行修改
+- 修改完成后必须创建 checkpoint
+
+**提问要求**
+- 必须使用 `AskUserQuestion` 工具，不允许跳过
+- 问题要具体、聚焦、可操作
+- 明确四个维度：操作类型/数据/交互/视图
+
+**修改规范**
+- 明确操作类型：新增/修改/移除/替换
+- 按照数据 → 逻辑 → 视图的顺序修改
+- 移除元素时清理相关的数据和事件监听器
+- 保持代码风格一致
+- 不破坏现有功能
+- 图片占位不使用真实链接
+
+**版本管理**
+- 每次修改必须创建 checkpoint
+- checkpoint 消息要简短描述修改内容
+- 修改前可选择性创建备份 checkpoint
+
+## 资源说明
+
+### references/
+
+- `clarify-intent.md`：结构化提问模板，明确修改意图的三个维度
+- `modification-examples.md`：常见修改场景的示例和最佳实践
