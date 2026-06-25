@@ -14,20 +14,20 @@
 
 ## 标准步骤
 
-1. 用 `prdkit prd check` 定位 PRD
+1. 用 `prd_check` 定位 PRD
 2. 定位 prototype：
-   - 用户有 URL → `prdkit prototype release link resolve <url>`
+   - 用户有 URL → `prototype_release_link_resolve`
    - 用户有路径 → 直接使用
-   - 其他 → `prdkit prototype list` + 上下文推断
-3. 用 `prdkit prototype release link list --json` 获取云端 release URL
-4. 用 `prdkit prototype mark list --prototype <路径> --json` 获取标注列表
-5. 用 `prdkit prototype mark get <ID> --prototype <路径> --json` 获取标注详情
+   - 其他 → `prototype_list` + 上下文推断
+3. 用 `prototype_release_link_list` 获取云端 release URL
+4. 用 `prototype_mark_list` 获取标注列表
+5. 用 `prototype_mark_get` 获取标注详情
 6. 过滤指标数据：将标注中的交互/技术指标转换为产品/业务指标，无法转换的丢弃
 7. 归纳标注内容
 8. 识别 PRD 中现有的对应功能说明小节
 9. 更新 PRD（附带更新 prototype 链接为云端 URL）
 10. 追加修订记录
-11. 用 `prdkit prd checkpoint create` 为 PRD 创建 checkpoint，message 使用产品语言描述本次变更
+11. 用 `prd_checkpoint_create` 为 PRD 创建 checkpoint，message 使用产品语言描述本次变更
 
 ## 同步粒度建议
 
